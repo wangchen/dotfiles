@@ -1,0 +1,13 @@
+#!/bin/sh
+
+basedir=$(pwd |sed "s@$HOME/@@")
+
+# link file to home dir
+function _link {
+    echo "Linking $1 ... "
+    ln -sf $basedir/$1 ~
+}
+
+echo "Current dir is $basedir"
+# spacemacs
+_link .spacemacs
