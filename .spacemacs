@@ -28,11 +28,12 @@ values."
      emacs-lisp
      git
      markdown
-     org
+     (org :variables
+          org-enable-github-support t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
+     ;; spell-checking
      syntax-checking
      version-control
      osx
@@ -232,7 +233,8 @@ values."
    ;; Delete whitespace while saving buffer. Possible values are `all'
    ;; to aggressively delete empty line and long sequences of whitespace,
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
-   ;; delete only whitespace for changed lines or `nil' to disable cleanup.
+   ;; delete only w
+   hitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
    ))
@@ -249,10 +251,17 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   ;; Transparency by default
-  (set-frame-parameter (selected-frame) 'alpha
-                       (cons dotspacemacs-active-transparency
-                             dotspacemacs-inactive-transparency))
+  ;; (set-frame-parameter (selected-frame) 'alpha
+  ;;                      (cons dotspacemacs-active-transparency
+  ;;                            dotspacemacs-inactive-transparency))
+  (setq org-capture-templates
+        '(("t" "Todo" entry (file+headline "~/Qsync/org/gtd.org" "Inbox")
+           "* TODO %?\n  %i\n  %a")
+          ("j" "Journal" entry (file+datetree "~/Qsync/org/journal.org")
+           "* %?\nEntered on %U\n  %i\n  %a")))
+  (setq org-agenda-files '("~/Qsync/org/gtd.org"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+
