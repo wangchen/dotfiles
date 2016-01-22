@@ -33,13 +33,22 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; spell-checking
+     (spell-checking :variables spell-checking-enable-by-default nil)
+     (colors :variables colors-enable-nyan-cat-progress-bar t)
+     ranger
+     prodigy
+     search-engine
+     eyebrowse
      syntax-checking
      version-control
+     gtags
      osx
      ycmd
      c-c++
      python
+     markdown
+     lua
+     html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -111,7 +120,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Code"
+   dotspacemacs-default-font '("Source Code Pro"
                                :size 14
                                :weight normal
                                :width normal
@@ -260,6 +269,8 @@ layers configuration. You are free to put any user code."
           ("j" "Journal" entry (file+datetree "~/Qsync/org/journal.org")
            "* %?\nEntered on %U\n  %i\n  %a")))
   (setq org-agenda-files '("~/Qsync/org/gtd.org"))
+  ;; turn on right margin
+  (add-hook 'prog-mode-hook 'turn-on-fci-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
