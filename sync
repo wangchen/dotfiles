@@ -8,6 +8,19 @@ function _link {
     ln -sf $basedir/$1 ~
 }
 
+function _link_all {
+    while read f
+    do
+        if [ -r "$f" ]
+        then
+            _link $f
+        fi
+    done
+}
+
 echo "Current dir is $basedir"
-# spacemacs
-_link .spacemacs
+
+_link_all <<EOF
+.spacemacs
+.pydistutils.cfg
+EOF
