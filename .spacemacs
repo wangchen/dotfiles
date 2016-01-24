@@ -109,11 +109,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-light
-                         spacemacs-dakr
+   dotspacemacs-themes '(spacemacs-dark
+                         spacemacs-light
                          solarized-light
                          solarized-dark
-                         leuven         
+                         leuven
                          monokai
                          zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -263,6 +263,8 @@ layers configuration. You are free to put any user code."
   ;; (set-frame-parameter (selected-frame) 'alpha
   ;;                      (cons dotspacemacs-active-transparency
   ;;                            dotspacemacs-inactive-transparency))
+  (set-variable 'ycmd-server-command
+                '("python" "/Users/wangchen/Developer/open/YouCompleteMe/third_party/ycmd/ycmd"))
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/Qsync/org/gtd.org" "Inbox")
            "* TODO %?\n  %i\n  %a")
