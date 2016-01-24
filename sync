@@ -23,4 +23,5 @@ echo "Current dir is $basedir"
 _link_all <<EOF
 .spacemacs
 .pydistutils.cfg
+.zshenv
 EOF
