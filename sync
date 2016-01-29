@@ -1,27 +1,34 @@
 #!/bin/sh
 
-basedir=$(pwd |sed "s@$HOME/@@")
+basedir=$(pwd)
 
-# link file to home dir
-function _link {
-    echo "Linking $1 ... "
-    ln -sf $basedir/$1 ~
-}
-
-function _link_all {
+function _install_to_home_dir {
+    echo "Installing to home dir"
     while read f
     do
         if [ -r "$f" ]
         then
-            _link $f
+            echo "  * $f"
+            ln -sf $basedir/$1 ~
         fi
     done
 }
 
-echo "Current dir is $basedir"
+function _install_launch_agents
+{
+    echo "Installing LaunchAgents"
+    la_dir="LaunchAgents"
+    for f in $(ls $la_dir); do
+        echo "  * $f"
+        ln -sf $basedir/$la_dir/$f ~/Library/LaunchAgents/
+    done
 
-_link_all <<EOF
+}
+
+_install_to_home_dir <<EOF
 .spacemacs
 .pydistutils.cfg
 .zshenv
 EOF
+
+_install_launch_agents
