@@ -34,21 +34,22 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      (spell-checking :variables spell-checking-enable-by-default nil)
-     (colors :variables colors-enable-nyan-cat-progress-bar t)
-     ranger
-     prodigy
-     search-engine
-     eyebrowse
+     ;; (colors :variables colors-enable-nyan-cat-progress-bar t)
+     ;; ranger
+     ;; prodigy
+     ;; search-engine
+     ;; eyebrowse
      syntax-checking
      version-control
+     semantic
      gtags
      osx
      ycmd
      c-c++
      python
      markdown
-     lua
-     html
+     ;; lua
+     ;; html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -87,7 +88,7 @@ values."
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
    ;; unchanged. (default 'vim)
-   dotspacemacs-editing-style 'emacs
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -273,8 +274,8 @@ layers configuration. You are free to put any user code."
   (setq org-agenda-files '("~/Qsync/org/gtd.org"))
   ;; turn on right margin
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-
