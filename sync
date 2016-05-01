@@ -26,7 +26,7 @@ function _install_launch_agents
 }
 
 _install_to_home_dir <<EOF
-.spacemacs
+.zpreztorc
 .pydistutils.cfg
 .zshenv
 EOF
