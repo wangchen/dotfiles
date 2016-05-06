@@ -173,3 +173,8 @@ zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+
+export LC_ALL=en_US.UTF-8
+
+alias zssh='ssh -F ~/Developer/hi/liveapp-server/liveapp-server/conf/ssh_config'
+alias zscp='scp -F ~/Developer/hi/liveapp-server/liveapp-server/conf/ssh_config'
